@@ -22,7 +22,7 @@ I am currently pursuing my **Master of Computer Applications (MCA)** and passion
 - 🛠️ **Skills** — Tools and technologies I know  
 - 📫 **Contact** — Ways to reach me (email, LinkedIn, GitHub)
 
----
+## Demo (https://soma1625.github.io/Portfolio/)
 
 ## 🌟 Projects Featured
 
