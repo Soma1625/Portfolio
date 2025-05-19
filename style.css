@@ -1,0 +1,403 @@
+body {
+	font-family: "Poppins", sans-serif;
+	background-color: #32372e;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.book {
+	width: 450px;
+	height: 550px;
+	position: relative;
+	transition-duration: 1s;
+	perspective: 1500;
+}
+input {
+	display: none;
+}
+.cover, .back-cover {
+	background-color: #4173a5;
+	width: 100%;
+	height: 100%;
+	border-radius: 0 15px 15px 0;
+	box-shadow: 0 0 5px rgb(41, 41, 41);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transform-origin: center left;
+}
+.cover {
+	position: absolute;
+	z-index: 6;
+	transition: transform 1s;
+}
+.cover label {
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+}
+.back-cover {
+	position: relative;
+	z-index: -1;
+}
+.page {
+	position: absolute;
+	background-color: white;
+	width: 430px;
+	height: 530px;
+	border-radius: 0 15px 15px 0;
+	margin-top: 10px;
+	transform-origin: left;
+	transform-style: preserve-3d;
+	transform: rotateY(0deg);
+	transition-duration: 1.5s;
+}
+.page img {
+	width: 100%;
+	height: 100%;
+	border-radius: 15px 0 0 15px;
+}
+.front-page {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+	box-sizing: border-box;
+	padding: 1rem;
+}
+.back-page {
+	transform: rotateY(180deg);
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+	z-index: 99;
+}
+.next, .prev {
+	position: absolute;
+	bottom: 1em;
+	cursor: pointer;
+}
+.next {
+	right: 1em;
+}
+.prev {
+	left: 1em;
+}
+#page1 {
+	z-index: 5;
+}
+#page2 {
+	z-index: 4;
+}
+#page3 {
+	z-index: 3;
+}
+#page4 {
+	z-index: 2;
+}
+#page5 {
+	z-index: 1;
+}
+
+#checkbox-cover:checked ~ .book {
+	transform: translateX(200px);
+}
+#checkbox-cover:checked ~ .book .cover {
+	transition: transform 1.5s, z-index 0.5s 0.5s;
+	transform: rotateY(-180deg);
+	z-index: 1;
+}
+#checkbox-cover:checked ~ .book .page {
+	box-shadow: 0 0 3px rgb(99, 98, 98);
+}
+#checkbox-page1:checked ~ .book #page1 {
+	transform: rotateY(-180deg);
+	z-index: 2;
+}
+#checkbox-page2:checked ~ .book #page2 {
+	transform: rotateY(-180deg);
+	z-index: 3;
+}
+#checkbox-page3:checked ~ .book #page3 {
+	transform: rotateY(-180deg);
+	z-index: 4;
+}
+#checkbox-page4:checked ~ .book #page4 {
+	transform: rotateY(-180deg);
+	z-index: 5;
+}
+.front-page h1 {
+    font-size: 2rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 10px 0;
+	
+}
+
+.social-links a {
+    color: #333;
+    font-size: 24px;
+    text-decoration: none;
+	transition: transform 0.3s ease;
+	padding: 10px;
+	border-radius: 50%;
+	background-color: #f0f0f0;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid #4173a5;
+}
+.social-links a:hover {
+	color: #4173a5;
+	transform: scale(1.2);
+}
+
+.button-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    background-color: #4173a5;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #2e5b8c;
+}
+
+.education-section {
+    margin-left: 20px;
+    margin-top: 41px;
+}
+
+.education-section h2 {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: #333;
+}
+
+.education-section ul {
+	margin-left: 15px;
+    padding: 0;
+}
+
+.education-section li {
+    margin-bottom: 8px;
+    font-size: 16px;
+	color: #555;
+	line-height: 1.8;
+}
+
+.experience {
+	margin-left: 20px;
+	margin-top: 20px;
+}	
+.experience h2 {
+	font-weight: bold;
+	margin-bottom: 10px;
+	font-size: 24px;
+	color: #333;
+}
+.experience ul {
+	margin-left: 15px;
+	padding: 0;
+}
+.experience li {
+	margin-bottom: 8px;
+	font-size: 16px;
+	color: #555;
+	line-height: 1.8;
+}
+
+.year {
+    color: #ff9800;
+    font-weight: bold;
+}
+
+.skills-section {
+  margin-top: -10px;
+  padding: 30px 20px;
+}
+
+.skills-section h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.skill-card {
+  background-color: #ffffff;
+  color: #333;
+  padding: 12px 16px;
+  width: 70px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 2px solid #4173a5;
+  transition: all 0.3s ease-in-out;
+}
+
+.skill-card img {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 8px;
+}
+
+.skill-card span {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.skill-card:hover {
+  background-color: #4173a5;
+  color: white;
+  transform: translateY(-5px);
+  border-color: #ffffff;
+}
+
+.contactme {
+	margin-left: 20px;
+	margin-top: 20px;
+	line-height: 1.8;
+}
+.contactme h2 {
+	font-weight: bold;
+	margin-bottom: 10px;
+	font-size: 24px;
+	color: #333;
+}
+.projects-section {
+	margin-left: 20px;
+	margin-top: 20px;
+  
+}
+.projects-section h2 {
+	font-weight: bold;
+	margin-bottom: 10px;
+	font-size: 24px;
+	color: #333;
+}
+.projects-section ul {
+  margin-left: 15px;
+  padding: 0;
+}
+.projects-section li {
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #555;
+  line-height: 1.8;
+}
+
+.certifications-section {
+	margin-left: 20px;
+	margin-top: 50px;
+}
+.certifications-section h2 {
+	font-weight: bold;
+	margin-bottom: 10px;
+	font-size: 24px;
+	color: #333;
+}
+.certifications-section ul {
+  margin-left: 15px;
+  padding: 0;
+}
+.certifications-section li {
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #555;
+  line-height: 1.4;
+}
+.certifications-section li a {
+  color: #4173a5;
+  text-decoration: none;
+  transition: transform 0.2s ease-in-out;
+  
+}
+.certifications-section li a:hover {
+  color: #83ae1f;
+  transform: scale(1.1);
+}
+
+.thank-you {
+  text-align: center;
+  margin-top: 70px;
+}
+
+.thank-you h2 {
+  color: #4173a5;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.thank-you p {
+  color: #555;
+  font-size: 16px;
+}
+
+.open-portfolio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  color: #b2c224;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  padding: 1em;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.open-portfolio:hover {
+  transform: scale(1.05);
+}
+
+.to-cover {
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+    font-size: 15px;
+    cursor: pointer;
+    color: #333;
+	background: none;
+    transition: transform 0.3s ease;
+}
+
+.to-cover:hover {
+    transform: scale(1.3);
+    color: #4173a5;
+}
+.prev:hover, .next:hover {
+	transform: scale(1.3);
+	color: #4173a5;
+}
